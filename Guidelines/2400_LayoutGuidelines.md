@@ -42,7 +42,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 		var query =  from product in products  where product.Price > 10  select product;
 
 - Start the LINQ statement with all the `from` expressions and don't interweave them with restrictions.
-- Add braces around every comparison condition, but don't add braces around a singular condition. For example `if (!string.IsNullOrEmpty(str) && (str != "new"))`
 
 - Add an empty line between multi-line statements, between members, after the closing parentheses, between unrelated code blocks, around the `#region` keyword, and between the `using` statements of different root namespaces.
 
