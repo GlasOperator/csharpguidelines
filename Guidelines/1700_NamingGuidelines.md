@@ -53,6 +53,9 @@ For example, use `OnButtonClick` rather than `OnBtnClick`. Avoid single characte
 - Don't use terms like `Enum`, `Class` or `Struct` in a name.
 - Identifiers that refer to a collection type should have plural names.
 
+**Exceptions:**
+- The names of the variables used in LINQ are abbreviated based on the type it represents (see also AV1756)
+
 ### Name types using nouns, noun phrases or adjective phrases  (AV1708) ![](images/2.png)
 Bad examples include `SearchExamination` (a page to search for examinations), `Common` (does not end with a noun, and does not explain its purpose) and `SiteSecurity` (although the name is technically okay, it does not say anything about its purpose). Good examples include `BusinessBinder`, `SmartTextBox`, or `EditableSingleCustomer`.
 
