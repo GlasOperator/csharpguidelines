@@ -86,21 +86,3 @@ Instead of casting to and from the object type in generic types or methods, use 
 			SomeClass obj = t;  
 		}  
 	}
-
-### Evaluate the result of a LINQ expression before returning it  (AV1250) ![](images/1.png)
-
-Consider the following code snippet
-	
-	public IEnumerable GetGoldMemberCustomers()
-	{
-		const decimal GoldMemberThresholdInEuro = 1000000;
-		
-		var query = 
-			from customer in db.Customers
-			where customer.Balance > GoldMemberThresholdInEuro
-			select new GoldMember(customer.Name, customer.Balance);
-		
-		return query;  
-	}
-
-Since LINQ queries use deferred execution, returning `query` will actually return the expression tree representing the above query. Each time the caller evaluates this result using a `foreach` cycle or similar, the entire query is re-executed resulting in new instances of `GoldMember` every time. Consequently, you cannot use the `==` operator to compare multiple `GoldMember` instances. Instead, always explicitly evaluate the result of a LINQ query using `ToList()`, `ToArray()` or similar methods.
