@@ -44,7 +44,9 @@ For example, don't use `g_` or `s_` to distinguish static from non-static fields
 ### Don't use abbreviations  (AV1706) ![](images/2.png)
 For example, use `OnButtonClick` rather than `OnBtnClick`. Avoid single character variable names, such as `i` or `q`. Use `index` or `query` instead.
 
-**Exceptions:** Use well-known abbreviations that are widely accepted or well-known in your work domain. For instance, use `UI` instead of `UserInterface`.
+**Exceptions:**
+- Use well-known abbreviations that are widely accepted or well-known in your work domain. For instance, use `UI` instead of `UserInterface`.
+- Abbreviate the variables used in LINQ (see also AV1756)
 
 ### Name a member, parameter or variable according its meaning and not its type  (AV1707) ![](images/2.png)
 - Use functional names. For example, `GetLength` is a better name than `GetInt`.
@@ -137,3 +139,9 @@ If the name of an extension method conflicts with another member or extension me
 
 ### Post-fix asynchronous methods with `Async` of `TaskAsync` (AV1755) ![](images/2.png)
 The general convention for methods that return `Task` or `Task<TResult>` is to post-fix them with `Async`, but if such a method already exists, use `TaskAsync` instead.
+
+### Abbreviate the names of the variables used in LINQ method syntax based on the type it represents (AV1756) ![](images/2.png)
+When using the method syntax in LINQ, abbreviate the name of the variable based on the type it represents. This makes the reader of your code more aware of the types that are being used. It is immediately clear that it is referencing the closure variable and it won't clash with other variables used inside the same scope.
+
+	IQueryable<Customer> query = from c in Customers where c.IsPreferred;
+	IEnumerable<Order> orders = query.Select(c => c.order).ToList();
