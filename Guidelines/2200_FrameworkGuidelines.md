@@ -7,8 +7,6 @@ NOTE: Requires Markdown Extra. See http://michelf.ca/projects/php-markdown/extra
 ### Use C# type aliases instead of the types from the `System` namespace  (AV2201) ![](images/1.png)
 For instance, use `object` instead of `Object`, `string` instead of `String`, and `int` instead of `Int32`. These aliases have been introduced to make the primitive types first class citizens of the C# language, so use them accordingly.
 
-**Exception:** When referring to static members of those types, it is custom to use the full CLS name, e.g. `Int32.Parse()` instead of `int.Parse()`.
-
 ### Properly name properties, variables or fields referring to localized resources  (AV2205) ![](images/3.png)
 The guidelines in this topic apply to localizable resources such as error messages and menu text.
 
